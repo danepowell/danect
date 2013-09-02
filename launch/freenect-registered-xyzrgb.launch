@@ -1,0 +1,10 @@
+<launch>
+  <include file="$(find freenect_launch)/launch/freenect.launch">
+    <!-- supply appropriate processing constellation -->
+    <arg name="processing_constellation_file"
+      value="$(find freenect_launch)/launch/examples/includes/produce-xyzrgb.launch" />
+    <arg name="depth_registration" default="true" />
+    <arg name="data_skip" value="4" />
+  </include>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/dane/.rviz/freenect.rviz" required="true" />
+</launch>
